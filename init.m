@@ -42,20 +42,20 @@ CurrHead.HeadEnd = pi;          %[rad] final heading value
 Kp_surge = (2*pi/30)^2*(6.4794^5+6.362*10^6);   % based on natural period of abot 30 seconds from RAOs
 Ki_surge = 18000;
 Kd_surge = 2*0.7*sqrt(6.4794^5+6.362*10^6)*sqrt(Kp_surge);
-%Kp_surge = 0;   
+% Kp_surge = 0;   
 % Ki_surge = 0;
 % Kd_surge = 0;
 
 
 Kp_sway = (2*pi/20)^2*(2.157*10^6+6.362*10^6);        % based on natural period of 25 seconds from RAOs
-Ki_sway = 37000;
+Ki_sway = 80000;
 Kd_sway = 2*0.7*sqrt(2.157*10^6+6.362*10^6)*sqrt(Kp_sway);
 % Kp_sway = 0;       
 % Ki_sway = 0;
 % Kd_sway = 0;
 
 Kp_yaw = (2*pi/10)^2*(1.0711*10^9+2.724*10^9);    % based on natural period of 10 seconds from RAOs
-Ki_yaw = 3.33*10^7;
+Ki_yaw = 1.5*10^8;
 Kd_yaw = 2*0.7*sqrt(1.0711*10^9+2.724*10^9)*sqrt(Kp_yaw);
 % Kp_yaw = 0;  
 % Ki_yaw = 0;
@@ -72,9 +72,10 @@ ConstSPSway = 0;  %m
 ConstSPYaw = pi/4;   %rad
 
 % if sequence of set-points
+% Used to tune the controller
 % n0 = [0 0 0];
 % n1 = [50 0 0];
-% n2 = [50 0 0];
+% n2 = n0;
 % n3 = n0;
 % n4 = n0;
 % n5 = n0;
@@ -86,8 +87,8 @@ n3 = [50 -50 -pi/4];
 n4 = [0 -50 -pi/4];
 n5 = [0 0 0];
 nEnd = [0 0 0];
-TimeSteady = 200;      %seconds , time for which the system has to stay  steady
-TimeTansition = 200;    %seconds , transidition time between one set-point to the next
+TimeSteady = 200;       % seconds , time for which the system has to stay  steady
+TimeTansition = 200;    % seconds , transidition time between one set-point to the next
 
 
 % do not change anything from now on
